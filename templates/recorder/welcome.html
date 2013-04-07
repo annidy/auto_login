@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>自动登陆设置</title>
+<style type="text/css">
+<!--
+body{text-align:center}
+#btn1 {
+	
+}
+-->
+</style>
+
+</head>
+
+<body>
+<h1>欢迎你： {{ username }}</h1>
+{% if state %}
+
+<script language="JavaScript">  
+<!-- //  
+var overDate = {{ seconds }}*1000;
+var NowTime = new Date();  
+var EndTime= new Date(NowTime.getTime() + overDate);  
+ 
+function GetRTime(){  
+    NowTime = new Date();  
+    var nMS=EndTime.getTime() - NowTime.getTime();  
+    var nD=Math.floor(nMS/(1000*60*60*24));  
+    var nH=Math.floor(nMS/(1000*60*60)) % 24;  
+    var nM=Math.floor(nMS/(1000*60)) % 60;  
+    var nS=Math.floor(nMS/1000) % 60;  
+
+    if(nD>= 0){  
+        document.getElementById("RemainD").innerHTML=nD;  
+        document.getElementById("RemainH").innerHTML=nH;  
+        document.getElementById("RemainM").innerHTML=nM;  
+        document.getElementById("RemainS").innerHTML=nS;  
+    }  
+    else {  
+        window.location.href="/recorder/start/"
+    }  
+    setTimeout("GetRTime()",1000);  
+}  
+window.onload=function(){  
+    GetRTime();  
+}  
+// -->  
+</script>
+<input name="btn1" type="button" value="取消登陆" onClick="window.location.href='/recorder/stop/'"> 
+
+<p/>
+
+<div id="CountMsg">  
+<table border="1" cellpadding="3" align="center">
+    <tr>
+        <td>
+            离取消自动登陆还有
+            <strong id="RemainD">XX</strong>天  
+            <strong id="RemainH">XX</strong>时  
+            <strong id="RemainM">XX</strong>分  
+            <strong id="RemainS">XX</strong>秒  
+        </td>
+    </tr>
+</table>
+{% else %}
+<input name="btn1" type="button" value="自动登陆" onClick="window.location.href='/recorder/start/'"> 
+{% endif %}
+</body>
+</html>

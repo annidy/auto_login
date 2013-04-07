@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>Welcome!</title>
+</head>
+<body>
+
+<div>
+	<a href="/recorder/regist">注册</a> <br/>
+</div>
+<h2> {{ message }} </h2>
+<div class="login">
+	<form method="post">
+		{% csrf_token %}
+		<table border="0" cellspaceing="0" cellpadding="0">
+			<tr>
+				<td width="80" align="right" valign="middle" class="load_word">工 号：</td>
+				<td width="150" align="left" valign="middle"><input type="text" id="workid" name="workid" class="text" maxlength="8"></td>
+				<td width="80" align="right" valign="middle" class="load_word">密 码：</td>
+				<td width="150" align="left" valign="middle"><input type="password" class="text" id="password" name="password"></td>
+				<td align="left">
+					<input id="submit" type="submit" class="btn" value="登陆">
+				</td>
+			</tr>	
+		</table>
+	</form>
+</div>
+</body>
+</html>
