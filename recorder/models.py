@@ -10,6 +10,7 @@ class LoginRecord(models.Model):
     def __unicode__(self):
         return "RECORD: %s %s"%(self.work_id, self.state)
 
+
 class LoginUsers(models.Model):
     user_name = models.CharField(max_length=20)
     passwd = models.CharField(max_length=8)

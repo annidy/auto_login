@@ -27,7 +27,7 @@ def login(request):
             except Exception, e:
                 pass
         message = u"登陆错误！"
-    
+
     return render_to_response('recorder/index.html', locals(), context_instance=RequestContext(request))
 
 def welcome(request):
@@ -85,7 +85,7 @@ def stop(request):
     start_time = datetime.now()
     stop_time = start_time + timedelta(days=1)
     record = LoginRecord(work_id=user.work_id, state=False, start_time=start_time, stop_time=stop_time)
-    record.save() # 新建一个记录
+    record.save() # 禁用一个记录
     return redirect('/recorder/welcome/')
 
 def api_query(request):
