@@ -5,7 +5,7 @@
 <body>
 
 <div>
-	<a href="/recorder/regist">注册</a> <br/>
+	<a href="/recorder/register">注册</a> <br/>
 </div>
 <h2> {{ message }} </h2>
 <div class="login">
@@ -13,8 +13,8 @@
 		{% csrf_token %}
 		<table border="0" cellspaceing="0" cellpadding="0">
 			<tr>
-				<td width="80" align="right" valign="middle" class="load_word">工 号：</td>
-				<td width="150" align="left" valign="middle"><input type="text" id="workid" name="workid" class="text" maxlength="8"></td>
+				<td width="80" align="right" valign="middle" class="load_word">用户名：</td>
+				<td width="150" align="left" valign="middle"><input type="text" id="username" name="username" class="text" maxlength="8"></td>
 				<td width="80" align="right" valign="middle" class="load_word">密 码：</td>
 				<td width="150" align="left" valign="middle"><input type="password" class="text" id="password" name="password"></td>
 				<td align="left">

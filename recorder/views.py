@@ -15,7 +15,7 @@ def index(request):
 
 def login(request):
     if request.method == 'POST':
-        un = request.POST.get('workid', None)
+        un = request.POST.get('username', None)
         pw = request.POST.get('password', None)
         print un, pw
         if un and pw:
@@ -50,7 +50,7 @@ def welcome(request):
         print e
         raise Http404 
 
-def regist(request):
+def register(request):
     if request.method == 'POST':
         un = request.POST.get('username', None)
         pw = request.POST.get('password', None)
@@ -59,13 +59,13 @@ def regist(request):
         if un and pw and wi:
             try:
                 user = LoginUsers.objects.get(user_name=un)
-                return HttpResponse("%s has been registed!"%un)
+                return HttpResponse("%s has been registered!"%un)
             except Exception, e:
                 user = LoginUsers(user_name=un, passwd=pw, work_id=wi)
                 user.save()
                 pass
 
-    return render_to_response('recorder/regist.html', context_instance=RequestContext(request))
+    return render_to_response('recorder/register.html', context_instance=RequestContext(request))
 
 def start(request):
     '''启用自动登陆'''
